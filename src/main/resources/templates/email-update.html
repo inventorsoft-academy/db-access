@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Create user</title>
+<body>
+<form action="#" th:action="@{/email-update}" th:object="${email}" method="post">
+    <label for="id">ID</label>
+    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+    <br/>
+    <label for="recipient">Recipient</label>
+    <input type="email" th:field="*{recipient}" id="recipient" name="recipient">
+    <br/>
+    <label for="subject">Subject</label>
+    <input type="text" th:field="*{subject}" id="subject" name="subject">
+    <br/><br/>
+    <label for="body">Body</label>
+    <input type="text" th:field="*{body}" id="body" name="body">
+    <br/><br/>
+    <label for="date">When to send (dd MM yyyy HH:mm)</label>
+    <input type="text" th:field="*{date}" id="date" name="date">
+    <br/>
+    <input type="submit" value="Update User">
+</form>
+</body>
+</html>

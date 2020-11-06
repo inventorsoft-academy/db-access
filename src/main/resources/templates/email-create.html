@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create email</title>
+</head>
+<body>
+<form action="#" th:action="@{/email-create}" th:object="${email}" method="post">
+    <div class="form-group">
+        <label for="recipient">Recipient</label>
+        <input type="email" th:field="*{recipient}" id="recipient" name="recipient">
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" th:field="*{subject}" id="subject" name="subject">
+    </div>
+    <div class="form-group">
+        <label for="body">Body</label>
+        <input type="text" th:field="*{body}" id="body" name="body">
+    </div>
+    <div class="form-group">
+        <label for="date">When to send (dd MM yyyy HH:mm)</label>
+        <input type="text" th:field="*{date}" id="date" name="date">
+    </div>
+    <input type="submit" value="Create Email">
+</form>
+</body>
+</html>

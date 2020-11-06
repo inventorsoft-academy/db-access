@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Emails</title>
+</head>
+<body>
+<div th:switch="${emails}">
+    <h2 th:case="null">No emails found!</h2>
+    <div th:case="*">
+        <h2>Emails</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Recipient</th>
+                <th>Subject</th>
+                <th>Body</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="email : ${emails}">
+                <td th:text="${email.id}"></td>
+                <td th:text="${email.recipient}"></td>
+                <td th:text="${email.subject}"></td>
+                <td th:text="${email.body}"></td>
+                <td th:text="${email.date}"></td>
+                <td><a th:href="@{email-update/{id}(id=${email.id})}">Edit</a></td>
+                <td><a th:href="@{email-delete/{id}(id=${email.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/email-create">Create email</a></p>
+</div>
+</body>
+</html>
